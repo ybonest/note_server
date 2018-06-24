@@ -1,0 +1,50 @@
+{
+  "name": "分类",
+  "arg": "categories",
+  "child": [
+    {
+      "name": "react笔记",
+      "arg": "react-note",
+      "child": [
+        {
+          "name": "介绍",
+          "arg": "introduce"
+        },
+        {
+          "name": "react组件",
+          "arg": "react-component"
+        },
+        {
+          "name": "redux",
+          "arg": "redux"
+        },
+        {
+          "name": "redux-saga",
+          "arg": "redux-saga"
+        }
+      ]
+    },
+    {
+      "name": "ES6笔记",
+      "arg": "es6-note",
+      "child": [
+        {
+          "name": "let与const",
+          "arg": "letconst"
+        },
+        {
+          "name": "promise",
+          "arg": "promise"
+        },
+        {
+          "name": "symbol",
+          "arg": "symbol"
+        },
+        {
+          "name": "解构赋值",
+          "arg": "destructuring"
+        }
+      ]
+    }
+  ]
+}
