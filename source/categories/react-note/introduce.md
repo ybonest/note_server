@@ -24,16 +24,5 @@
 - tree diff:把新旧两棵DOM树，从上到下，逐层进行对比的过程，就是 Tree Diff；当每一层都对比完毕，那么必然能够找到 那些 需要被 按需更新的DOM节点；
 - component diff：在对比每一层的时候，每一层中组件之间的对比，叫做 component Diff；如果 对比前后，组件的类型相同，就暂时认为 组件不需要更新；如果对比前后，组件类型不一样，内部会删除旧组件，并创建新组建同时替换到 之前旧组件所在的位置；
 - element diff:在每一个组件的内部，每个元素之间也要进行前后的对比，这种元素级别的对比，叫做 element Diff；
-![Diff算法图](./images/Diff.png)
+![Diff算法图](/images/Diff.png)
 
-
-<script src='./data-bar.js'></script>
-<script>
-  var name = 'introduce';
-  eleObj.child.forEach(function(item){
-    if(item.name && item.name === name){
-      item.child[0].style = Object.assign({}, item.child[0].style, {color: '#fc6423'});
-    }
-  })
-</script>
-<script src='../../static-source/createElment.js'></script>
