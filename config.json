@@ -45,6 +45,78 @@
           "arg": "destructuring"
         }
       ]
+    },
+    {
+      "name": "webpack笔记",
+      "arg": "webpack-note",
+      "child": [
+        {
+          "name": "基础",
+          "arg": "webpack"
+        },
+        {
+          "name": "全局安装使用",
+          "arg": "webpackuse"
+        },
+        {
+          "name": "config配置文件",
+          "arg": "webpackconfigjs"
+        },
+        {
+          "name": "webpack-dev-server",
+          "arg": "webpack-dev-server"
+        },
+        {
+          "name": "html-webpack-plugin",
+          "arg": "html-webpack-plugin"
+        },
+        {
+          "name": "css编译以及路径问题",
+          "arg": "styleloader"
+        },
+        {
+          "name": "babel处理Js高级语法",
+          "arg": "babel"
+        },
+        {
+          "name": "简单实例",
+          "arg": "webpackexample"
+        },
+        {
+          "name": "项目打包",
+          "arg": "webpackpub"
+        }
+      ]
+    },
+    {
+      "name": "javascript笔记",
+      "arg": "js-note",
+      "child": [
+        {
+          "name": "原型",
+          "arg": "prototype"
+        },
+        {
+          "name": "继承",
+          "arg": "interface"
+        },
+        {
+          "name": "冒泡以及默认事件",
+          "arg": "bubble"
+        },
+        {
+          "name": "attachEvent和addEventListener区别",
+          "arg": "addEventListener"
+        },
+        {
+          "name": "document ready和onload区别",
+          "arg": "onload"
+        },
+        {
+          "name": "事件模型",
+          "arg": "js-event-modal"
+        }
+      ]
     }
   ]
 }
