@@ -22,7 +22,6 @@ router.get('/api/note', function(req, res, next) {
           return '<h'
             + level
             + ' id="'
-            // + raw.toLowerCase().replace(/[^\w]+/g, '-')
             + id
             + '">'
             + text
@@ -42,6 +41,12 @@ router.get('/api/note', function(req, res, next) {
 
 router.get('/api/sidebar', function(req, res, next) {
   fs.readFile('config.json', function(err, data){
+    res.send(data);
+  })
+});
+
+router.get('/api/categories', function(req, res, next) {
+  fs.readFile('datas/categories.json', function(err, data){
     res.send(data);
   })
 });
