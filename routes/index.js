@@ -4,6 +4,7 @@ const fs = require('fs');
 const marked = require('marked');
 const { TreeMd, pinyinConcat } = require('../utils/tree.js');
 const pinyin = require('pinyin');
+const reptileHttp = require('../utils/reptile.js');
 
 
 /* GET home page. */
@@ -47,8 +48,50 @@ router.get('/api/sidebar', function(req, res, next) {
 
 router.get('/api/categories', function(req, res, next) {
   fs.readFile('datas/categories.json', function(err, data){
+    if(err){
+      return console.error(err);
+    }
     res.send(data);
   })
 });
 
+router.get('/api/bloglink', function(req, res, next) {
+  fs.readFile('datas/bloglink.json', function(err, data){
+    if(err){
+      return console.error(err);
+    }
+    res.send(data);
+  })
+});
+
+router.post('/api/addbloglink', function(req, res, next) {
+  const { params } = req.body;
+  const reg = /[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/;
+  // console.log(params.href.test(reg));
+  if(!reg.test(params.href)){
+    const result = {err:'不是正确格式的链接',code:0}
+    return res.send(JSON.stringify(result));
+  }
+  fs.readFile('datas/bloglink.json', 'utf8', function(err, data){
+    if(err){
+      return console.error(err);
+    }
+    // res.send(data);
+    let content = JSON.parse(data);
+    content.push(params);
+    fs.writeFile('datas/bloglink.json', JSON.stringify(content), 'utf8', function(err){
+      if(err){
+        return console.error(err);
+      }
+      res.send(JSON.stringify({code: 1, data: content}));
+    })
+  })
+})
+
+router.get('/api/aeptile', function(req, res, next) {
+  reptileHttp(res);
+  console.log(123123);
+  
+  // res.send(result);
+})
 module.exports = router;
