@@ -4,7 +4,7 @@ const fs = require('fs');
 const marked = require('marked');
 const { TreeMd, pinyinConcat } = require('../utils/tree.js');
 const pinyin = require('pinyin');
-const reptileHttp = require('../utils/reptile.js');
+const { reptileHttp, analiysSegment, analiysCss88 } = require('../utils/reptile.js');
 
 
 /* GET home page. */
@@ -89,9 +89,16 @@ router.post('/api/addbloglink', function(req, res, next) {
 })
 
 router.get('/api/aeptile', function(req, res, next) {
-  reptileHttp(res);
-  console.log(123123);
-  
-  // res.send(result);
+  const urlAndFn = [
+    {
+      reptileUrl: 'https://segmentfault.com/channel/frontend',
+      analiysFn: analiysSegment
+    },
+    {
+      reptileUrl: 'http://www.css88.com/',
+      analiysFn: analiysCss88
+    }
+  ]
+  reptileHttp(res ,urlAndFn);
 })
 module.exports = router;
