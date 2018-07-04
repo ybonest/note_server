@@ -89,16 +89,11 @@ router.post('/api/addbloglink', function(req, res, next) {
 })
 
 router.get('/api/aeptile', function(req, res, next) {
-  const urlAndFn = [
-    {
-      reptileUrl: 'https://segmentfault.com/channel/frontend',
-      analiysFn: analiysSegment
-    },
-    {
-      reptileUrl: 'http://www.css88.com/',
-      analiysFn: analiysCss88
+  fs.readFile('datas/homeDatas.json', 'utf8', function(err, data){
+    if(err){
+      return console.error(err);
     }
-  ]
-  reptileHttp(res ,urlAndFn);
+    res.send(data);
+  })
 })
 module.exports = router;

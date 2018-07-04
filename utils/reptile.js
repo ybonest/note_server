@@ -9,7 +9,32 @@ const fs = require('fs');
 // const reptileUrl = "https://www.w3cschool.cn/html5/"
 // const reptileUrl = "https://www.baidu.com/";
 
-const reptileHttp = (res, urlAndFn) => {
+// const reptileHttp = (res, urlAndFn) => {
+//   let result = [];
+//   try {
+//     urlAndFn.forEach((item, index) => {
+//       const { reptileUrl, analiysFn } = item;
+//       superagent
+//         .get(reptileUrl)
+//         .set({
+//           Referer: reptileUrl,
+//           'User-Agent': "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:39.0) Gecko/20100101 Firefox/39.0"
+//         }).end(function (err, response){
+//         if(err){
+//           return Error(err);
+//         }
+//         result = result.concat(analiysFn(response.text));
+//         if (index === urlAndFn.length - 1) {
+//           res.send(JSON.stringify(result));
+//         }
+//       });
+//     })
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+const reptileHttp = (urlAndFn) => {
   let result = [];
   try {
     urlAndFn.forEach((item, index) => {
@@ -25,7 +50,12 @@ const reptileHttp = (res, urlAndFn) => {
         }
         result = result.concat(analiysFn(response.text));
         if (index === urlAndFn.length - 1) {
-          res.send(JSON.stringify(result));
+          // res.send(JSON.stringify(result));
+          fs.writeFile('datas/homeDatas.json', JSON.stringify(result), 'utf8', function(err){
+            if(err){
+              return console.error(err);
+            }
+          })
         }
       });
     })
