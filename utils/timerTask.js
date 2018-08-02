@@ -1,4 +1,5 @@
 const schedule = require("node-schedule");
+const fs = require('fs');
 const { reptileHttp, analiysSegment, analiysCss88 } = require('./reptile.js');
 
 const urlAndFn = [
@@ -16,7 +17,11 @@ module.exports = function(){
   var rule3     = new schedule.RecurrenceRule();
   reptileHttp(urlAndFn);
   var times3    = [1,5,9,13,17,21];
+  // var times1    = [1,6,11,16,21,26,31,36,41,46,51,56];
+  // rule3.second  = times1;
   rule3.hour  = times3;
+  rule3.minute = 0;
+  rule3.second = 0;
   let flag = 0;
   schedule.scheduleJob(rule3, function(){
     fs.readFile('datas/timerTaskFlag.json', 'utf8', function(err, data){
